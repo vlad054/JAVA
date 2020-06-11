@@ -3,6 +3,8 @@ package io.hexlet.xo.model;
 
 public class Player {
 
+    12
+
     private final String name;
 
     private final Figure figure;
