@@ -31,6 +31,7 @@ public class WinnerController {
         return null;
     }
 
+
     private boolean check(final Field field,
                           final Point currentPoint,
                           final IPointGenerator pointGenerator) {
