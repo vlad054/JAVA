@@ -11,9 +11,12 @@ public class XOCLI {
 
     public static void main(final String[] args) {
 
-        final Game gameXO = new Game(new Field(3), "XO");
+        final Game gameXO = new Game(new Field(), "XO");
+
         final ConsoleView consoleView = new ConsoleView();
+
         consoleView.getPlayersNames(gameXO);
+        consoleView.setGameRules(gameXO);
         consoleView.show(gameXO);
         while(consoleView.move(gameXO)) {
             consoleView.show(gameXO);

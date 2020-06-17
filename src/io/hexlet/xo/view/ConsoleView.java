@@ -9,6 +9,7 @@ import io.hexlet.xo.model.Figure;
 import io.hexlet.xo.model.Game;
 import io.hexlet.xo.model.Player;
 import io.hexlet.xo.model.exceptions.AlreadyOccupiedException;
+import io.hexlet.xo.model.exceptions.InvalidFieldSize;
 import io.hexlet.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
@@ -34,6 +35,25 @@ public class ConsoleView {
 
         game.setPlayers(players);
 
+
+    }
+
+    public void setGameRules(Game game){
+        final Scanner in = new Scanner(System.in);
+
+        System.out.println("Set game size (0 for classic 3 size): ");
+        boolean t = true;
+        while (t) {
+
+            try {
+                int size = in.nextInt();
+                if (size != 0) game.getField().setFiledSize(size);
+                t = false;
+            } catch (InvalidFieldSize e) {
+                System.out.println("Please enter size more 1 and less 10");
+
+            }
+        }
 
     }
 

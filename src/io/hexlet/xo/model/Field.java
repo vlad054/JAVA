@@ -2,6 +2,7 @@ package io.hexlet.xo.model;
 
 
 import io.hexlet.xo.model.exceptions.AlreadyOccupiedException;
+import io.hexlet.xo.model.exceptions.InvalidFieldSize;
 import io.hexlet.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
@@ -12,11 +13,21 @@ public class Field {
 
     private final Figure[][] field;
 
-    private final int filedSize;
+    private int filedSize = 3;
 
-    public Field(final int filedSize) {
-        this.filedSize = filedSize;
+    public Field() {
         field = new Figure[filedSize][filedSize];
+    }
+
+    public Field(int size) {
+        this.filedSize = size;
+        field = new Figure[filedSize][filedSize];
+    }
+
+    public void setFiledSize(int size) throws InvalidFieldSize{
+        if ((size < 1) || (size > 10))
+            filedSize = size;
+        else throw new InvalidFieldSize();
     }
 
     public int getSize() {
