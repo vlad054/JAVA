@@ -11,7 +11,7 @@ public class Field {
 
     private static final int MIN_COORDINATE = 0;
 
-    private final Figure[][] field;
+    private Figure[][] field;
 
     private int filedSize = 3;
 
@@ -21,12 +21,14 @@ public class Field {
 
     public Field(int size) {
         this.filedSize = size;
-        field = new Figure[filedSize][filedSize];
+        field = new Figure[size][size];
     }
 
     public void setFiledSize(int size) throws InvalidFieldSize{
-        if ((size < 1) || (size > 10))
+        if ((size > 1) && (size < 10)) {
             filedSize = size;
+            this.field = new Figure[size][size];
+        }
         else throw new InvalidFieldSize();
     }
 

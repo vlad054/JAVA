@@ -51,6 +51,7 @@ public class ConsoleView {
                 t = false;
             } catch (InvalidFieldSize e) {
                 System.out.println("Please enter size more 1 and less 10");
+                continue;
 
             }
         }
@@ -62,7 +63,7 @@ public class ConsoleView {
         final Field field = game.getField();
         for (int x = 0; x < field.getSize(); x++) {
             if (x != 0)
-                printSeparator();
+                printSeparator(game);
             printLine(field, x);
         }
     }
@@ -129,8 +130,13 @@ public class ConsoleView {
         System.out.println();
     }
 
-    private void printSeparator() {
-        System.out.println("~~~~~~~~~~~");
+    private void printSeparator(final Game game) {
+        int size = game.getField().getSize();
+
+        for(int i = 0; i < size; i++){
+            System.out.print("~~~");
+        }
+        System.out.println("~~~");
     }
 
 }
