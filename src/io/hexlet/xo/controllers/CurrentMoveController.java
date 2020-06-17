@@ -3,11 +3,23 @@ package io.hexlet.xo.controllers;
 
 import io.hexlet.xo.model.Field;
 import io.hexlet.xo.model.Figure;
+import io.hexlet.xo.model.Game;
+import io.hexlet.xo.model.Player;
 import io.hexlet.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
 
 public class CurrentMoveController {
+
+    public Player currentPlayer(final Field field, final Game game){
+        Player player1 = game.getPlayers()[0];
+        Player player2 = game.getPlayers()[1];
+
+        if (currentMove(field).equals(player1.getFigure())){
+            return player1;
+        }
+        return player2;
+    }
 
     public Figure currentMove(final Field field) {
         int countFigure = 0;
