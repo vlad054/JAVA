@@ -24,7 +24,7 @@ public class FieldTest {
         final Figure inputFigure = Figure.O;
 
         field.setFigure(inputPoint, inputFigure);
-        final Figure actualFigure = field.getFigure(inputPoint);
+        final T actualFigure = field.getFigure(inputPoint);
 
         assertEquals(inputFigure, actualFigure);
     }
@@ -34,7 +34,7 @@ public class FieldTest {
         final Field field = new Field(3);
         final Point inputPoint = new Point(0, 0);
 
-        final Figure actualFigure = field.getFigure(inputPoint);
+        final T actualFigure = field.getFigure(inputPoint);
 
         assertNull(actualFigure);
     }

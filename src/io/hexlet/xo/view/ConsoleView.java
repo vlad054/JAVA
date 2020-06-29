@@ -70,7 +70,7 @@ public class ConsoleView {
 
     public boolean move(final Game game) {
         final Field field = game.getField();
-        final Figure winnerFig = winnerController.getWinner(field);
+        final T winnerFig = winnerController.getWinner(field);
         final Player currentPlayer = currentMoveController.currentPlayer(field, game);
 
         if (winnerFig != null) {
@@ -117,7 +117,7 @@ public class ConsoleView {
             if (y != 0)
                 System.out.print("|");
             System.out.print(" ");
-            final Figure figure;
+            final T figure;
             try {
                 figure = field.getFigure(new Point(y, x));
             } catch (final InvalidPointException e) {
