@@ -24,7 +24,7 @@ public class ConsoleView {
 
     private final MoveController moveController = new MoveController();
 
-    public void getPlayersNames(Game game){
+    public void getPlayersNames(Game<Figure> game){
         final Scanner in = new Scanner(System.in);
         final Player[] players = new Player[2];
 
@@ -38,7 +38,7 @@ public class ConsoleView {
 
     }
 
-    public void setGameRules(Game game){
+    public void setGameRules(Game<Figure> game){
         final Scanner in = new Scanner(System.in);
 
         System.out.println("Set game size (0 for classic 3 size): ");
@@ -58,7 +58,7 @@ public class ConsoleView {
 
     }
 
-    public void show(final Game game) {
+    public void show(final Game<Figure> game) {
         System.out.format("Game name: %s\n", game.getName());
         final Field field = game.getField();
         for (int x = 0; x < field.getSize(); x++) {
@@ -68,9 +68,9 @@ public class ConsoleView {
         }
     }
 
-    public boolean move(final Game game) {
+    public boolean move(final Game<Figure> game) {
         final Field field = game.getField();
-        final T winnerFig = winnerController.getWinner(field);
+        final Figure winnerFig = winnerController.getWinner(field);
         final Player currentPlayer = currentMoveController.currentPlayer(field, game);
 
         if (winnerFig != null) {
@@ -117,7 +117,7 @@ public class ConsoleView {
             if (y != 0)
                 System.out.print("|");
             System.out.print(" ");
-            final T figure;
+            final Figure figure;
             try {
                 figure = field.getFigure(new Point(y, x));
             } catch (final InvalidPointException e) {
@@ -130,7 +130,7 @@ public class ConsoleView {
         System.out.println();
     }
 
-    private void printSeparator(final Game game) {
+    private void printSeparator(final Game<Figure> game) {
         int size = game.getField().getSize();
 
         for(int i = 0; i < size; i++){

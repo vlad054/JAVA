@@ -1,15 +1,15 @@
 package io.hexlet.xo.model;
 
 
-public class Game {
+public class Game<F>{
 
     private Player[] players = {new Player("First", Figure.X), new Player("Second",Figure.O)};
 
-    private final Field field;
+    private final Field<F> field;
 
     private final String name;
 
-    public Game(final Field field,
+    public Game(final Field<F> field,
                 final String name) {
         this.field = field;
         this.name = name;
