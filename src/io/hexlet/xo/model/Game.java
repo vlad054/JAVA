@@ -23,7 +23,7 @@ public class Game<F>{
         return players;
     }
 
-    public Field getField() {
+    public Field<F> getField() {
         return field;
     }
 
